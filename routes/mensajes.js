@@ -1,16 +1,16 @@
 import express from "express";
 import { crearMensaje, obtenerMensajes, responderMensaje } from "../controllers/mensajeController.js";
-import authMiddleware from "../middlewares/authMiddleware.js";
+
 
 const router = express.Router();
 
 // Crear mensaje → usuarios logueados
-router.post("/", authMiddleware, crearMensaje);
+router.post("/", crearMensaje);
 
 // Obtener mensajes → admin
-router.get("/", authMiddleware, obtenerMensajes);
+router.get("/", obtenerMensajes);
 
 // Responder mensaje → admin
-router.put("/:id/respuesta", authMiddleware, responderMensaje);
+router.put("/:id/respuesta",responderMensaje);
 
 export default router;
