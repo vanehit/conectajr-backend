@@ -16,7 +16,7 @@ conectarDB();
 
 // ⚡ Configuración de CORS
 app.use(cors({
-  origin: "https://conecta-jr.vercel.app", 
+  origin: ["https://conecta-jr.vercel.app", "http://localhost:5173"], 
   credentials: true
 }));
 
