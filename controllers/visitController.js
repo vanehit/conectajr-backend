@@ -29,3 +29,13 @@ export const registerVisit = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// ⚡ Nuevo controlador solo para consultar totales
+export const getTotalVisits = async (req, res) => {
+  try {
+    const total = await Visit.countDocuments();
+    res.json({ total });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
