@@ -1,5 +1,6 @@
 import Mensaje from "../models/Mensaje.js";
 
+// Crear mensaje
 export const crearMensaje = async (req, res) => {
   try {
     const nuevoMensaje = new Mensaje(req.body);
@@ -10,6 +11,7 @@ export const crearMensaje = async (req, res) => {
   }
 };
 
+// Obtener mensajes → admin
 export const obtenerMensajes = async (req, res) => {
   try {
     const mensajes = await Mensaje.find().sort({ fecha: -1 });
@@ -19,6 +21,7 @@ export const obtenerMensajes = async (req, res) => {
   }
 };
 
+// Responder mensaje → admin
 export const responderMensaje = async (req, res) => {
   const { id } = req.params;
   const { respuesta } = req.body;

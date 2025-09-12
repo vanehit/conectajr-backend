@@ -4,13 +4,13 @@ import authMiddleware from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-// Crear mensaje público
-router.post("/", crearMensaje);
+// Crear mensaje → usuarios logueados
+router.post("/", authMiddleware, crearMensaje);
 
-// Obtener todos los mensajes (solo admin)
+// Obtener mensajes → admin
 router.get("/", authMiddleware, obtenerMensajes);
 
-// Responder a un mensaje (solo admin)
-router.post("/:id/respuesta", authMiddleware, responderMensaje);
+// Responder mensaje → admin
+router.put("/:id/respuesta", authMiddleware, responderMensaje);
 
 export default router;
