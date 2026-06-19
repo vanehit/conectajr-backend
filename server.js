@@ -4,13 +4,11 @@ import dotenv from "dotenv";
 import conectarDB from "./config/db.js";
 import mensajeRoutes from "./routes/mensajes.js";
 import userRoutes from "./routes/userRoutes.js";
-import visitRoutes from "./routes/visitRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
-import likeRoutes from "./routes/likeRoutes.js";
 import practiceLabRoutes from "./routes/practiceLabRoutes.js";
 
-dotenv.config(); // cargar variables de entorno
+dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -36,10 +34,8 @@ app.use(express.json());
 // Rutas del backend
 app.use("/api/mensajes", mensajeRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/visits", visitRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/content", contentRoutes);
-app.use("/api/likes", likeRoutes);
 app.use("/api/practice-lab", practiceLabRoutes);
 
 // Ruta de prueba
